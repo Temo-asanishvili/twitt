@@ -1,114 +1,33 @@
-import React, { useReducer, useEffect } from "react";
+import React from "react";
+import UserFetch from "./components/connectors/UsersFetch";
+import PostFetch from "./components/connectors/PostsFetch";
+import CommentsFetch from "./components/CommentsFetch";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  NavLink,
-} from "react-router-dom";
 import "./App.scss";
+import PhotoFetch from "./components/connectors/PhotoFetch";
 
 const App = () => {
-  const url = "https://jsonplaceholder.typicode.com/posts";
-
-  const { loading, error, data, refetch } = useFetch(url);
-
-  if (loading) {
-    return <p>მიმდინარეობს ჩატვირთვა...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-  const Main = () => {
-    data.lent = 6
-  };
-
   return (
-    <div>
-      <button onClick={refetch}>Refetch</button>
-      <ul>
-        {data.map((post) => (
-          <li key={post.id}>
-            <div> პოსტის დასახელება </div>
-            <div>{post.title}</div>
-            ნომერი: {post.id}
-            <Router>
-              <NavLink to={`${post.id}`}>დეტალურად</NavLink>
-            </Router>
-          </li>
-        ))}
-      </ul>
+    <div className="container">
+      <div>
+        <h2>this is user</h2>
+        <UserFetch />
+      </div>
+      <div>
+        <h2> this is posts</h2>
+        <PostFetch />
+      </div>
+      <div>
+        <h2>this is comments</h2>
+        <CommentsFetch />
+      </div>
+      <div>
+        <h2>this is Photo</h2>
+
+        <PhotoFetch />
+      </div>
     </div>
   );
-};
-
-const useFetch = (url) => {
-  const types = {
-    REQUEST: "REQUEST",
-    SUCCESS: "SUCCESS",
-    ERROR: "ERROR",
-    REFETCH: "REFETCH",
-  };
-
-  const [state, dispatch] = useReducer(
-    (state, action) => {
-      switch (action.type) {
-        case types.REQUEST:
-          return {
-            ...state,
-            loading: true,
-          };
-
-        case types.SUCCESS:
-          return {
-            ...state,
-            loading: false,
-            data: action.data,
-          };
-
-        case types.ERROR:
-          return {
-            ...state,
-            loading: false,
-            error: action.error,
-          };
-
-        case types.REFETCH:
-          return {
-            ...state,
-            refetch: state.refetch + 1,
-          };
-
-        default:
-          return state;
-      }
-    },
-    {
-      loading: true,
-      error: undefined,
-      data: undefined,
-      refetch: 0,
-    }
-  );
-
-  useEffect(() => {
-    dispatch({ type: types.REQUEST });
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Oops! There was a ${response.status} error`);
-        }
-        return response.json();
-      })
-      .then((data) => dispatch({ type: types.SUCCESS, data }))
-      .catch((error) => dispatch({ type: types.ERROR, error }));
-  }, [state.refetch]);
-
-  return {
-    ...state,
-    refetch: () => dispatch({ type: types.REFETCH }),
-  };
 };
 
 export default App;
