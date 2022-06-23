@@ -1,7 +1,7 @@
 import React from "react";
 import UserFetch from "./components/connectors/UsersFetch";
 import PostFetch from "./components/connectors/PostsFetch";
-import CommentsFetch from "./components/CommentsFetch";
+import CommentsFetch from "./components/connectors/CommentsFetch";
 
 import "./App.scss";
 import PhotoFetch from "./components/connectors/PhotoFetch";
