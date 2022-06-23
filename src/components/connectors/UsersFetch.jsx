@@ -27,9 +27,9 @@ export default function UserFetch () {
     }, [])
   
     if (error) {
-      return <div>Ошибка: {error.message}</div>;
+      return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Загрузка...</div>;
+      return <div>Loading...</div>;
     } else {
       return (
         <ul>

@@ -1,5 +1,5 @@
 import React from "react";
-import UserFetch from "./components/connectors/UsersFetch";
+import UsersFetch from "./components/connectors/UsersFetch";
 import PostFetch from "./components/connectors/PostsFetch";
 import CommentsFetch from "./components/connectors/CommentsFetch";
 
@@ -11,11 +11,11 @@ const App = () => {
     <div className="container">
       <div>
         <h2>this is user</h2>
-        <UserFetch />
+        <UsersFetch/>
       </div>
       <div>
         <h2> this is posts</h2>
-        <PostFetch />
+        <PostFetch/>
       </div>
       <div>
         <h2>this is comments</h2>
