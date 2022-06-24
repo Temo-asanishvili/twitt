@@ -20,12 +20,12 @@ export const TweetsApi = (id) => {
   const data = useFetch(url);
   return data;
 };
-export const UserApi = (id) => {
-  const url = "https://jsonplaceholder.typicode.com/users?id=" + id;
+export const UsersApi = (id) => {
+  const url = "https://jsonplaceholder.typicode.com/users?" + id;
 
   const data = useFetch(url);
 
-  return { data };
+  return data;
 };
 export const ImgApi = (id) => {
   const url = "https://jsonplaceholder.typicode.com/photos?id=" + id;
@@ -35,7 +35,7 @@ export const ImgApi = (id) => {
   return { data };
 };
 
-export const CommentsaApi = () => {
+export const CommentsApi = () => {
   const url = "https://jsonplaceholder.typicode.com/comments";
 
   const data = useFetch(url);
