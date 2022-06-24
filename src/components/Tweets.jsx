@@ -1,24 +1,39 @@
 import React, { useState } from "react";
-import { TweetsApi, UserApi } from "./ApiConnector";
+import { TweetsApi } from "./ApiConnector";
+import { Link } from "react-router-dom";
+import TweetCard from "./TweetCard";
 
+export default function Tweets() {
+  const [tweetsId, setTweetsId] = useState(null);
+  const Tweets = TweetsApi(tweetsId);
 
-export default function Tweets () {
-    const [tweetsId, setTweetsId] = useState(null);
-    const tweets = TweetsApi(tweetsId)
-    const users = UserApi(tweetsId)
-    return (
-        <div>   
-            
-            {tweets.map((tweet) => {
+  const handleTweetId = (id) => {
+    setTweetsId(id);
+  };
 
-                return (
-                    <div key={tweet.id}>
-                    tweet  title:
-                     <p>{tweet.title}</p>
-                    </div>
-                )
-            })}
-            this is tweetss....
-        </div>
-    )
+  return (
+    <div>
+      {Tweets.length > 1 ? (
+        Tweets.map((tweet) => {
+          return (
+            <div>
+              <Link to={`${tweet.id}`}>read tweets</Link>
+
+              <TweetCard
+                key={tweet.id}
+                tweet={tweet.id}
+                handleTweetId={handleTweetId}
+              />
+            </div>
+          );
+        })
+      ) : (
+        <TweetCard
+          key={Tweets.id}
+          tweet={Tweets}
+          handleTweetId={handleTweetId}
+        />
+      )}
+    </div>
+  );
 }
