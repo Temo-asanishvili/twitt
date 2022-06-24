@@ -1,1 +1,1 @@
-h1{text-align:center}.container{display:flex}
+.TweetContainer{display:flex;justify-content:center;flex-wrap:wrap;border:1px solid gray;width:800px;margin:0 auto 0 auto;text-align:center}.mainTweet{width:100%}
