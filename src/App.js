@@ -9,24 +9,25 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main/>} />
+        <Route path="/" element={<Main />} />
         <Route path="/:id" element={<Detail />} />
       </Routes>
-      
-      <Tweets />
-      
     </Router>
   );
 };
 
 function Main() {
-  return <h1>thisIs Main page</h1>;
+  return (
+    <div>
+      <h1>thisIs Main page</h1>;
+      <Tweets />
+    </div>
+  );
 }
-
 
 function Detail() {
   return <h1>thisIn detail information for Tweet By ID</h1>;
+  
 }
-
 
 export default App;
