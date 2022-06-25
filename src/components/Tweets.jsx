@@ -13,27 +13,16 @@ export default function Tweets() {
 
   return (
     <div>
-      {Tweets.length > 1 ? (
-        Tweets.map((tweet) => {
-          return (
+      {Tweets.map((tweet) => {
+        return (
+          <div className="TweetContainer" key={tweet.id}>
             <div>
-              <Link to={`${tweet.id}`}>read tweets</Link>
-
-              <TweetCard
-                key={tweet.id}
-                tweet={tweet.id}
-                handleTweetId={handleTweetId}
-              />
+            <p>{tweet.title}</p>
+            <Link to={`${tweet.id}`}>read tweets</Link>
             </div>
-          );
-        })
-      ) : (
-        <TweetCard
-          key={Tweets.id}
-          tweet={Tweets}
-          handleTweetId={handleTweetId}
-        />
-      )}
+          </div>
+        );
+      })}
     </div>
   );
 }
