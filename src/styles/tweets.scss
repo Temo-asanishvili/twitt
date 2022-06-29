@@ -1,0 +1,58 @@
+h1 {
+  text-align: center;
+}
+.allTweets {
+  border: 1px solid black;
+  border-radius: 20px;
+
+  width: 600px;
+  margin: 1% auto 2% auto;
+}
+
+.TweetImg {
+  border-radius: 20px;
+  width: 90%;
+  margin: 0 auto 6% auto;
+}
+
+.TweetContainer {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AvatarImg {
+  width: 55px;
+  height: 55px;
+  margin: 2% 0 0 5%;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
+.AvatarImg:hover {
+  opacity: 80%;
+}
+
+.Name,
+.UserTag {
+  margin: 5% 2%;
+}
+
+.Name {
+  font-weight: 700;
+}
+
+.Name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto 4% auto;
+}
+
+.tweetButton {
+}

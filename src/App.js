@@ -2,8 +2,7 @@ import React from "react";
 import Tweets from "./components/Tweets";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import "./App.scss";
-import TweetCard from "./components/TweetCard";
+
 
 const App = () => {
   return (
@@ -19,14 +18,16 @@ const App = () => {
 function Main() {
   return (
     <div>
-      <h1>thisIs Main page</h1>;
+    <h1> This is main page</h1>
       <Tweets />
     </div>
   );
 }
 
 function Detail() {
-  return <h1>thisIn detail information for Tweet By ID</h1>;
+  return <h1>this is detail information for Tweet By ID</h1>;
+
+
   
 }
 
