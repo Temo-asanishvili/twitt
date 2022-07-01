@@ -1,14 +1,20 @@
 import React from "react";
+import "../styles/comments.scss"
 
-function Comments(props) {
+export default function Comments(props) {
   const { comment } = props;
 
   return (
-    <div className="CommentsContainer">
-          {comment.email}
-          {comment.body}
+    <div className="commentsContainer">
+      <div>{comment.email[0].toUpperCase()}</div>
+      <div>
+        <div>{comment.email}</div> ...
+        <div>
+          <p>{comment.body}</p>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default Comments;
+

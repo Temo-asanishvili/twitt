@@ -28,7 +28,10 @@ export const ApiCommentsData = () => {
 };
 
 export const ApiPostsData = (id) => {
-  const url = "https://jsonplaceholder.typicode.com/posts";
+  const url =
+    id === null
+      ? "https://jsonplaceholder.typicode.com/posts/"
+      : "https://jsonplaceholder.typicode.com/posts/" + id;
 
   const data = useFetch(url);
 

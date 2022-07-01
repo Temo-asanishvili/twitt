@@ -9,7 +9,6 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/:id" element={<Detail />} />
       </Routes>
     </Router>
   );
@@ -18,17 +17,10 @@ const App = () => {
 function Main() {
   return (
     <div>
-    <h1> This is main page</h1>
+    <h1> Welcome to the Twitter</h1>
       <Tweets />
     </div>
   );
-}
-
-function Detail() {
-  return <h1>this is detail information for Tweet By ID</h1>;
-
-
-  
 }
 
 export default App;

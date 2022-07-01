@@ -1,22 +1,51 @@
 import React, { useState } from "react";
-import { ApiPostsData } from "../connectors/apiConnector";
-import TweetsCard from "./TweetsCard";
-import "../styles/tweets.scss";
+import { ApiCommentsData, ApiPostsData } from "../connectors/apiConnector";
+import Comments from "./Comments";
+import TweetContainer from "./TweetContainer";
 
 export default function Tweets() {
   const [postId, setPostId] = useState(null);
-  const postData = ApiPostsData(postId);
+  const tweets = ApiPostsData(postId);
+  const commentsData = ApiCommentsData(postId);
+
+  const handleDetails = (id) => {
+    setPostId(id);
+  };
 
   return (
     <div>
-      {postData.length > 1 ? (
-        postData.map((post) => {
-          return <TweetsCard key={post.id} post={post} />
+      {tweets.length > 1 ? (
+        tweets.map((post) => {
+          return (
+            <TweetContainer
+              key={post.id}
+              post={post}
+              handleDetails={handleDetails}
+            />
+          );
         })
       ) : (
+        <TweetContainer
+          key={tweets.id}
+          post={tweets}
+          handleDetails={handleDetails}
+        />
+      )}
+      {commentsData.length >= 1 && postId !== null && (
         <div>
-          <TweetsCard key={postData.id} post={postData} />
+          {commentsData.map((comment) => {
+            return (
+              comment.postId === postId && (
+                <Comments comment={comment} key={comment.id} />
+              )
+            );
+          })}
         </div>
+      )}
+      {postId !== null && (
+        <button className="Back" onClick={() => setPostId(null)}>
+          Go BACK
+        </button>
       )}
     </div>
   );
