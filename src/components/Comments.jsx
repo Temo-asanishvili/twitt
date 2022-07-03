@@ -6,7 +6,7 @@ export default function Comments(props) {
 
   return (
     <div className="commentsContainer">
-      <div>{comment.email[0].toUpperCase()}</div>
+      <div className="AvatarComment">{comment.email[0].toUpperCase()}</div>
       <div>
         <div>{comment.email}</div> ...
         <div>

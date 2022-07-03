@@ -4,6 +4,12 @@ import useLocalState from "../hooks/useLocalStorage";
 import "../styles/tweets.scss";
 import Popup from "./Popup";
 
+import  {IoMdHeartEmpty} from 'react-icons/io';
+import  {FaRetweet} from 'react-icons/fa';
+import {MdIosShare} from 'react-icons/md';
+import {BiMessageRounded} from 'react-icons/bi';
+
+
 
 export default function TweetContainer(props) {
   const users = ApiUsersData(props.post.userId);
@@ -65,12 +71,12 @@ export default function TweetContainer(props) {
 
           <div className="ButtonContainer">
             <button onClick={handleComment} className="tweetButton">
-              Reply
-            </button>{" "}
-            10
-            <button className="tweetButton">Retweet</button> 1
-            <button className="tweetButton" onClick={Like}>{count}</button> 1
-            <button className="tweetButton">Share</button> 30
+              <BiMessageRounded className="BiMessage"/> 10
+            </button>
+          
+            <button className="tweetButton"><FaRetweet className="tweetFa"/> 1</button> 
+            <button className="tweetButton" onClick={Like}><IoMdHeartEmpty className="heartLike"/>{count}</button>
+            <button className="tweetButton"><MdIosShare className="shareMd"/></button> 
           </div>
         </div>
       )}

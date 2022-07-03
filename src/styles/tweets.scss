@@ -2,11 +2,9 @@ h1 {
   text-align: center;
 }
 .allTweets {
-  border: 1px solid black;
-  border-radius: 20px;
-
+  border: 1px solid gray;
   width: 600px;
-  margin: 1% auto 2% auto;
+  margin: 0 auto;
 }
 
 .TweetImg {
@@ -65,11 +63,44 @@ h1 {
 
 .Back {
   position: absolute;
+  background-color: #fff;
+  border: none;
   top: 100px;
   left: 70%;
+}
+.Back:hover {
+  background-color: rgb(193, 193, 193);
+  border-radius: 20px;
+  cursor: pointer;
 }
 .popUp {
   margin: 4% 0 0 45%;
   font-size: 20px;
   font-weight: 700;
+}
+
+.tweetButton {
+  background-color: #fff;
+  border: none;
+  font-size: 14px;
+}
+
+.heartLike:hover,
+.shareMd:hover,
+.tweetFa:hover,
+.BiMessage:hover {
+  cursor: pointer;
+
+}
+
+.heartLike:hover {
+  color: red;
+}
+
+.tweetFa:hover {
+  color: green;
+}
+.shareMd:hover,
+.BiMessage:hover {
+  color: blue;
 }
