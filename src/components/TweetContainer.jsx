@@ -1,13 +1,16 @@
 import React, { useRef, useState } from "react";
 import { ApiImagesData, ApiUsersData } from "../connectors/apiConnector";
+import useLocalState from "../hooks/useLocalStorage";
 import "../styles/tweets.scss";
 import Popup from "./Popup";
+
 
 export default function TweetContainer(props) {
   const users = ApiUsersData(props.post.userId);
   const img = ApiImagesData(props.post.id);
   const [isClicked, setIsClicked] = useState(false);
   const openComment = useRef();
+  const [count, setCount] = useLocalState(120, "Like", 1000);
 
   const handleComment = (e) => {
     if (openComment.current.contains(e.target)) {
@@ -23,6 +26,13 @@ export default function TweetContainer(props) {
     props.handleDetails(props.post.id);
     setIsClicked(false);
   };
+
+  const Like = () => {
+     setCount(count + 1);
+    
+  };
+
+
   return (
     <div className="allTweets">
       {isClicked && props.clickedMenuId === props.post.id}
@@ -37,7 +47,7 @@ export default function TweetContainer(props) {
           <div className="Name"> {users.data[0].name}</div>
           <div className="UserTag">@{users.data[0].username}</div>
           <div className="popUp">
-            <Popup handleComment={handleComment} TweetDetail={TweetDetail} />
+            <Popup handleComment={handleComment} TweetDetail={TweetDetail} Like={Like}/>
           </div>
           <img
             className="TweetImg"
@@ -59,7 +69,7 @@ export default function TweetContainer(props) {
             </button>{" "}
             10
             <button className="tweetButton">Retweet</button> 1
-            <button className="tweetButton">Like</button> 120
+            <button className="tweetButton" onClick={Like}>{count}</button> 1
             <button className="tweetButton">Share</button> 30
           </div>
         </div>

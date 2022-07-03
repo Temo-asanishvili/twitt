@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "../styles/popup.scss";
 
+
 export default function Popup(props) {
   const ref = useRef();
 
@@ -15,7 +16,9 @@ export default function Popup(props) {
         <div className="modal__backdrop">
           <div className="modal__container" ref={ref}>
             <div className="buttonContainer">
-              <button className="buttonPopup">Like</button>
+              <button className="buttonPopup" onClick={() => {
+                  props.Like();
+                }} >Like</button>
               <button
                 className="buttonPopup"
                 onClick={() => {

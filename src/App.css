@@ -1,5 +1,5 @@
 .TweetContainer {
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   border: 1px solid gray;
@@ -17,4 +17,3 @@
 h1 {
   text-align: center;
 }
-
